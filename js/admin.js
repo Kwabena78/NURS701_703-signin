@@ -94,6 +94,7 @@ function setupForms() {
     const course = document.getElementById('create-course').value;
     const sessionType = document.getElementById('create-type').value;
     const sessionDate = document.getElementById('create-date').value;
+    const pin = document.getElementById('create-pin').value.trim();
     const createBtn = document.getElementById('create-btn');
 
     if (!course || !sessionType || !sessionDate) {
@@ -108,7 +109,7 @@ function setupForms() {
     if (CONFIG.API_URL.includes('YOUR_DEPLOYMENT_ID_HERE')) {
       await new Promise(r => setTimeout(r, 800));
       const demoToken = Math.random().toString(36).substring(2, 10);
-      showQrCode(demoToken, course, sessionType, sessionDate);
+      showQrCode(demoToken, course, sessionType, sessionDate, pin);
       createBtn.disabled = false;
       createBtn.textContent = 'Create Session & Generate QR Code';
       return;
@@ -118,14 +119,15 @@ function setupForms() {
       adminKey,
       course,
       sessionType,
-      sessionDate
+      sessionDate,
+      pin
     });
 
     createBtn.disabled = false;
     createBtn.textContent = 'Create Session & Generate QR Code';
 
     if (result.success) {
-      showQrCode(result.token, course, sessionType, sessionDate);
+      showQrCode(result.token, course, sessionType, sessionDate, pin);
       loadSessions(); // Refresh history
     } else {
       alert(result.message || 'Failed to create session.');
@@ -405,9 +407,18 @@ function renderLiveAttendance(records, totalStudents) {
 
 // --------------- QR Code Generation ---------------
 
-function showQrCode(token, course, sessionType, sessionDate) {
+function showQrCode(token, course, sessionType, sessionDate, pin) {
   const url = `${CONFIG.APP_URL}/?s=${token}`;
   lastCreatedQrUrl = url;
+
+  // Show PIN if set
+  const pinDisplay = document.getElementById('qr-pin-display');
+  if (pin) {
+    document.getElementById('qr-pin-number').textContent = pin;
+    pinDisplay.classList.remove('hidden');
+  } else {
+    pinDisplay.classList.add('hidden');
+  }
 
   // Show the QR output section
   document.getElementById('qr-output').classList.remove('hidden');
