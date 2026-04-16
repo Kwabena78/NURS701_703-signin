@@ -50,8 +50,14 @@ async function initSession(token) {
     token: token,
     course: result.course,
     sessionType: result.sessionType,
-    sessionDate: result.sessionDate
+    sessionDate: result.sessionDate,
+    requiresPin: result.requiresPin
   };
+
+  // Show PIN field if session requires it
+  if (result.requiresPin) {
+    document.getElementById('pin-field').classList.remove('hidden');
+  }
 
   renderSessionBanner();
   showState('signin');
@@ -103,8 +109,16 @@ document.getElementById('signin-form').addEventListener('submit', async (e) => {
 
   const input = document.getElementById('student-id');
   const studentId = input.value.trim();
+  const pin = document.getElementById('session-pin').value.trim();
   const inputError = document.getElementById('input-error');
   const submitBtn = document.getElementById('submit-btn');
+
+  // Validate PIN if required
+  if (currentSession.requiresPin && !pin) {
+    showInputError('Please enter the session PIN displayed in the room.');
+    document.getElementById('session-pin').focus();
+    return;
+  }
 
   // Clear previous errors
   inputError.classList.add('hidden');
@@ -140,7 +154,8 @@ document.getElementById('signin-form').addEventListener('submit', async (e) => {
 
   const result = await apiPost('recordAttendance', {
     token: currentSession.token,
-    studentId: studentId
+    studentId: studentId,
+    pin: pin
   });
 
   // Re-enable form
@@ -153,10 +168,15 @@ document.getElementById('signin-form').addEventListener('submit', async (e) => {
   }
 
   if (!result.success) {
-    // Student not found
-    document.getElementById('notfound-message').textContent =
-      result.message || 'Student ID not found. Please check and try again.';
-    showState('notfound');
+    if (result.pinError) {
+      showInputError(result.message);
+      document.getElementById('session-pin').value = '';
+      document.getElementById('session-pin').focus();
+    } else {
+      document.getElementById('notfound-message').textContent =
+        result.message || 'Student ID not found. Please check and try again.';
+      showState('notfound');
+    }
     return;
   }
 
@@ -192,8 +212,14 @@ function showInputError(message) {
 
 function resetForm() {
   document.getElementById('student-id').value = '';
+  document.getElementById('session-pin').value = '';
   document.getElementById('input-error').classList.add('hidden');
   document.getElementById('student-id').classList.remove('border-red-400');
   showState('signin');
-  document.getElementById('student-id').focus();
+  // Focus PIN first if required, otherwise student ID
+  if (currentSession && currentSession.requiresPin) {
+    document.getElementById('session-pin').focus();
+  } else {
+    document.getElementById('student-id').focus();
+  }
 }
