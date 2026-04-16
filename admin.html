@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — SIM Lab Sign-In</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aut-blue': '#00263A',
+            'aut-navy': '#001a2c',
+            'aut-orange': '#E85C0D',
+            'aut-orange-hover': '#d14e06',
+            'aut-light': '#f0f4f8',
+            'aut-green': '#4a7c59',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-aut-light min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="text-white shadow-lg no-print">
+    <!-- AUT green accent bar -->
+    <div class="h-1.5 bg-gradient-to-r from-green-700 via-green-600 to-green-500"></div>
+    <div class="bg-black py-3 px-6">
+      <div class="max-w-4xl mx-auto flex items-center justify-between">
+        <img src="assets/AUT_Logo_New.jpg" alt="AUT Logo" class="h-10 w-auto">
+        <div class="flex items-center gap-6">
+          <div class="text-right">
+            <h1 class="text-base font-semibold leading-tight">Admin Dashboard</h1>
+            <p class="text-xs text-gray-400">Simulation Lab Sign-In</p>
+          </div>
+          <button
+            id="logout-btn"
+            onclick="adminLogout()"
+            class="hidden text-sm text-gray-400 hover:text-white transition-colors border border-gray-600 hover:border-gray-400 px-3 py-1.5 rounded-lg"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Dark navy sub-bar -->
+    <div class="bg-aut-blue px-6 py-2">
+      <div class="max-w-4xl mx-auto">
+        <p class="text-xs text-blue-200 tracking-wide uppercase font-medium">Faculty of Health &amp; Environmental Sciences</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 px-4 py-8">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Login Form -->
+      <div id="login-section" class="max-w-sm mx-auto">
+        <div class="card">
+          <h2 class="text-xl font-semibold text-gray-800 mb-1">Admin Login</h2>
+          <p class="text-sm text-gray-500 mb-6">Enter the admin password to manage sessions.</p>
+          <form id="login-form" autocomplete="off">
+            <label for="admin-password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+            <input
+              type="password"
+              id="admin-password"
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-aut-orange focus:ring-2 focus:ring-aut-orange/20 outline-none transition-all duration-200"
+              required
+            >
+            <p id="login-error" class="text-red-500 text-sm mt-2 hidden"></p>
+            <button
+              type="submit"
+              id="login-btn"
+              class="w-full mt-4 bg-aut-orange hover:bg-aut-orange-hover text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-md"
+            >
+              Login
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Dashboard (hidden until logged in) -->
+      <div id="dashboard-section" class="hidden">
+
+        <!-- Stats Row -->
+        <div id="stats-row" class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div class="stat-card">
+            <div class="stat-number" id="stat-total">0</div>
+            <div class="stat-label">Today's Sign-ins</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-nurs701">0</div>
+            <div class="stat-label">NURS701</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-nurs703">0</div>
+            <div class="stat-label">NURS703</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="stat-sessions">0</div>
+            <div class="stat-label">Active Sessions</div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="border-b border-gray-200 mb-6 no-print flex gap-1 overflow-x-auto">
+          <button class="admin-tab active" data-tab="live">Live Attendance</button>
+          <button class="admin-tab" data-tab="create">Create Session</button>
+          <button class="admin-tab" data-tab="history">Session History</button>
+          <button class="admin-tab" data-tab="students">Manage Students</button>
+        </div>
+
+        <!-- Tab 1: Live Attendance -->
+        <div id="tab-live" class="admin-tab-content active">
+          <div class="card">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold text-gray-800">Live Attendance</h3>
+              <div class="flex items-center gap-3">
+                <select id="live-session-select" class="text-sm border border-gray-200 rounded-lg px-3 py-2 focus:border-aut-orange outline-none">
+                  <option value="">Select a session...</option>
+                </select>
+                <button onclick="refreshLiveAttendance()" class="text-sm text-aut-orange hover:text-aut-orange-hover font-medium">
+                  Refresh
+                </button>
+              </div>
+            </div>
+
+            <div id="live-empty" class="text-center py-8 text-gray-400">
+              Select an active session to view live attendance.
+            </div>
+
+            <div id="live-content" class="hidden">
+              <div class="flex items-center justify-between mb-3">
+                <span id="live-count" class="text-sm font-medium text-gray-600">0 / 0 students</span>
+                <span id="live-percent" class="text-sm font-bold text-aut-orange">0%</span>
+              </div>
+              <div class="progress-bar mb-4">
+                <div id="live-progress" class="progress-bar-fill" style="width: 0%"></div>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Student ID</th>
+                      <th>Name</th>
+                      <th>Time</th>
+                    </tr>
+                  </thead>
+                  <tbody id="live-table-body">
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Create Session -->
+        <div id="tab-create" class="admin-tab-content">
+          <div class="card">
+            <h3 class="font-semibold text-gray-800 mb-4">Create New Session</h3>
+            <form id="create-form" class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Course</label>
+                <select id="create-course" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-aut-orange outline-none transition-all">
+                  <option value="">Select course...</option>
+                  <option value="NURS701">NURS701</option>
+                  <option value="NURS703">NURS703</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Session Type</label>
+                <select id="create-type" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-aut-orange outline-none transition-all" disabled>
+                  <option value="">Select course first...</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Date</label>
+                <input
+                  type="date"
+                  id="create-date"
+                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-aut-orange outline-none transition-all"
+                >
+              </div>
+              <button
+                type="submit"
+                id="create-btn"
+                class="w-full bg-aut-orange hover:bg-aut-orange-hover text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-md"
+              >
+                Create Session & Generate QR Code
+              </button>
+            </form>
+          </div>
+
+          <!-- QR Code Output (shown after creation) -->
+          <div id="qr-output" class="hidden mt-6">
+            <div class="card print-area">
+              <h3 class="font-semibold text-gray-800 mb-1 text-center">Session QR Code</h3>
+              <p id="qr-session-info" class="text-sm text-gray-500 text-center mb-4"></p>
+              <div class="qr-container" id="qr-code-container">
+                <div id="qr-code"></div>
+                <p id="qr-url" class="text-xs text-gray-400 break-all text-center max-w-xs"></p>
+              </div>
+              <p class="text-center text-sm text-gray-500 mt-4">Scan this QR code with your phone to sign in</p>
+              <div class="flex gap-3 mt-4 no-print justify-center">
+                <button
+                  onclick="window.print()"
+                  class="bg-aut-blue hover:bg-aut-navy text-white font-medium py-2.5 px-5 rounded-xl transition-all text-sm"
+                >
+                  Print QR Code
+                </button>
+                <button
+                  onclick="copyQrUrl()"
+                  id="copy-url-btn"
+                  class="border-2 border-gray-200 hover:border-aut-orange text-gray-700 font-medium py-2.5 px-5 rounded-xl transition-all text-sm"
+                >
+                  Copy Link
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Session History -->
+        <div id="tab-history" class="admin-tab-content">
+          <div class="card">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold text-gray-800">Session History</h3>
+              <button onclick="loadSessions()" class="text-sm text-aut-orange hover:text-aut-orange-hover font-medium">
+                Refresh
+              </button>
+            </div>
+            <div id="history-list">
+              <p class="text-center py-8 text-gray-400">Loading sessions...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 4: Manage Students -->
+        <div id="tab-students" class="admin-tab-content">
+          <div class="card mb-6">
+            <h3 class="font-semibold text-gray-800 mb-1">Upload Student List</h3>
+            <p class="text-sm text-gray-500 mb-5">Upload a CSV file to update the student list for a course. The CSV must have two columns: <strong>StudentID</strong> and <strong>Name</strong> (header row is optional).</p>
+
+            <!-- Course selector -->
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Course</label>
+              <select id="students-course" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-aut-orange outline-none transition-all">
+                <option value="">Select course...</option>
+                <option value="NURS701">NURS701</option>
+                <option value="NURS703">NURS703</option>
+              </select>
+            </div>
+
+            <!-- File upload zone -->
+            <div
+              id="upload-zone"
+              class="border-2 border-dashed border-gray-200 rounded-xl p-8 text-center cursor-pointer hover:border-aut-orange transition-colors mb-4"
+              onclick="document.getElementById('csv-file-input').click()"
+            >
+              <svg class="w-10 h-10 text-gray-300 mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              <p class="text-sm font-medium text-gray-600">Click to choose a CSV file</p>
+              <p class="text-xs text-gray-400 mt-1">or drag and drop here</p>
+              <input type="file" id="csv-file-input" accept=".csv,.txt" class="hidden">
+            </div>
+
+            <!-- Upload mode toggle -->
+            <div class="flex gap-3 mb-5">
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="upload-mode" value="replace" checked class="accent-aut-orange">
+                <span class="text-sm font-medium text-gray-700">Replace list</span>
+                <span class="text-xs text-gray-400">(wipes old list)</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer">
+                <input type="radio" name="upload-mode" value="append" class="accent-aut-orange">
+                <span class="text-sm font-medium text-gray-700">Add to existing</span>
+                <span class="text-xs text-gray-400">(keeps old students)</span>
+              </label>
+            </div>
+
+            <!-- Preview area (shown after file parse) -->
+            <div id="upload-preview" class="hidden">
+              <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
+                <div class="flex items-center justify-between mb-3">
+                  <p id="preview-summary" class="text-sm font-semibold text-blue-800"></p>
+                  <button onclick="clearUpload()" class="text-xs text-blue-500 hover:text-blue-700">Clear</button>
+                </div>
+                <div class="overflow-x-auto max-h-48 overflow-y-auto">
+                  <table class="data-table">
+                    <thead>
+                      <tr><th>Student ID</th><th>Name</th></tr>
+                    </thead>
+                    <tbody id="preview-table-body"></tbody>
+                  </table>
+                </div>
+              </div>
+              <button
+                id="upload-confirm-btn"
+                onclick="confirmUpload()"
+                class="w-full bg-aut-orange hover:bg-aut-orange-hover text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-md"
+              >
+                Upload & Save to Google Sheets
+              </button>
+            </div>
+
+            <!-- Upload result -->
+            <div id="upload-result" class="hidden mt-4"></div>
+          </div>
+
+          <!-- Current list viewer -->
+          <div class="card">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold text-gray-800">Current Student Lists</h3>
+              <button onclick="loadStudentList()" class="text-sm text-aut-orange hover:text-aut-orange-hover font-medium">
+                Refresh
+              </button>
+            </div>
+            <div class="flex gap-3 mb-4">
+              <button onclick="viewStudents('NURS701')" id="view-701-btn"
+                class="px-4 py-2 rounded-lg border-2 border-aut-orange bg-aut-orange text-white text-sm font-medium transition-all">
+                NURS701
+              </button>
+              <button onclick="viewStudents('NURS703')" id="view-703-btn"
+                class="px-4 py-2 rounded-lg border-2 border-gray-200 text-gray-600 text-sm font-medium hover:border-aut-orange transition-all">
+                NURS703
+              </button>
+            </div>
+            <div id="student-list-content">
+              <p class="text-center py-6 text-gray-400">Loading...</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-4 text-xs text-gray-400 no-print">
+    AUT School of Nursing — Simulation Lab Attendance Admin
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

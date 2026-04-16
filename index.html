@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIM Lab Sign-In — AUT Nursing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwindcss.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aut-blue': '#00263A',
+            'aut-navy': '#001a2c',
+            'aut-orange': '#E85C0D',
+            'aut-orange-hover': '#d14e06',
+            'aut-light': '#f0f4f8',
+            'aut-green': '#4a7c59',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-aut-light min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="text-white shadow-lg">
+    <!-- AUT green accent bar (matches AUT website) -->
+    <div class="h-1.5 bg-gradient-to-r from-green-700 via-green-600 to-green-500"></div>
+    <div class="bg-black py-3 px-6">
+      <div class="max-w-lg mx-auto flex items-center justify-between">
+        <img src="assets/AUT_Logo_New.jpg" alt="AUT Logo" class="h-10 w-auto">
+        <div class="text-right">
+          <h1 class="text-base font-semibold leading-tight">Simulation Lab Sign-In</h1>
+          <p class="text-xs text-gray-400">School of Nursing</p>
+        </div>
+      </div>
+    </div>
+    <!-- Dark navy sub-bar -->
+    <div class="bg-aut-blue px-6 py-2">
+      <div class="max-w-lg mx-auto">
+        <p class="text-xs text-blue-200 tracking-wide uppercase font-medium">Faculty of Health &amp; Environmental Sciences</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex items-start justify-center px-4 py-8">
+    <div class="w-full max-w-md">
+
+      <!-- Loading State -->
+      <div id="loading-state" class="card text-center py-12">
+        <div class="spinner mx-auto mb-4"></div>
+        <p class="text-gray-500">Validating session...</p>
+      </div>
+
+      <!-- Error State (invalid/expired session) -->
+      <div id="error-state" class="card hidden">
+        <div class="text-center py-8">
+          <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">Session Unavailable</h2>
+          <p id="error-message" class="text-gray-500 mb-6">This session link is no longer active.</p>
+          <p class="text-sm text-gray-400">Please ask your instructor for the current QR code.</p>
+        </div>
+      </div>
+
+      <!-- Sign-In Form -->
+      <div id="signin-state" class="hidden">
+        <!-- Session Info Banner -->
+        <div id="session-banner" class="bg-aut-blue text-white rounded-xl px-5 py-4 mb-5 shadow-md">
+          <div class="flex items-center gap-2 mb-1">
+            <span id="banner-course" class="bg-aut-orange text-white text-xs font-bold px-2.5 py-0.5 rounded-full">NURS701</span>
+            <span id="banner-type" class="text-sm font-medium">SIM Lab</span>
+          </div>
+          <p id="banner-date" class="text-blue-200 text-sm mt-1"></p>
+        </div>
+
+        <!-- ID Entry Card -->
+        <div class="card">
+          <h2 class="text-xl font-semibold text-gray-800 mb-1">Sign In</h2>
+          <p class="text-sm text-gray-500 mb-6">Enter your student ID number to record your attendance.</p>
+
+          <form id="signin-form" autocomplete="off">
+            <label for="student-id" class="block text-sm font-medium text-gray-700 mb-2">Student ID</label>
+            <input
+              type="text"
+              id="student-id"
+              inputmode="numeric"
+              pattern="[0-9]*"
+              placeholder="e.g. 12345678"
+              maxlength="12"
+              class="w-full px-4 py-3.5 text-lg border-2 border-gray-200 rounded-xl focus:border-aut-orange focus:ring-2 focus:ring-aut-orange/20 outline-none transition-all duration-200 text-center tracking-widest font-mono"
+              required
+            >
+            <p id="input-error" class="text-red-500 text-sm mt-2 hidden"></p>
+
+            <button
+              type="submit"
+              id="submit-btn"
+              class="w-full mt-5 bg-aut-orange hover:bg-aut-orange-hover text-white font-semibold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md hover:shadow-lg active:scale-[0.98] text-lg"
+            >
+              Sign In
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Success State -->
+      <div id="success-state" class="card hidden">
+        <div class="text-center py-6">
+          <div class="checkmark-circle mx-auto mb-5">
+            <svg class="checkmark-svg" viewBox="0 0 52 52">
+              <circle class="checkmark-circle-bg" cx="26" cy="26" r="25" fill="none"/>
+              <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </div>
+          <h2 id="success-title" class="text-xl font-semibold text-gray-800 mb-2">You're signed in!</h2>
+          <p id="success-message" class="text-gray-500 mb-6"></p>
+          <p id="success-time" class="text-xs text-gray-400 mb-6"></p>
+          <button
+            onclick="resetForm()"
+            class="text-aut-orange hover:text-aut-orange-hover font-medium text-sm transition-colors"
+          >
+            Sign in another student
+          </button>
+        </div>
+      </div>
+
+      <!-- Already Signed In State -->
+      <div id="already-state" class="card hidden">
+        <div class="text-center py-6">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">Already Signed In</h2>
+          <p id="already-message" class="text-gray-500 mb-6"></p>
+          <button
+            onclick="resetForm()"
+            class="text-aut-orange hover:text-aut-orange-hover font-medium text-sm transition-colors"
+          >
+            Sign in another student
+          </button>
+        </div>
+      </div>
+
+      <!-- Not Found State -->
+      <div id="notfound-state" class="card hidden">
+        <div class="text-center py-6">
+          <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+            </svg>
+          </div>
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">Student Not Found</h2>
+          <p id="notfound-message" class="text-gray-500 mb-6"></p>
+          <button
+            onclick="resetForm()"
+            class="bg-aut-orange hover:bg-aut-orange-hover text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 shadow-md text-sm"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-4 text-xs text-gray-400">
+    AUT School of Nursing — Simulation Lab Attendance
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/signin.js"></script>
+</body>
+</html>
