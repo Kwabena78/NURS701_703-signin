@@ -46,10 +46,10 @@ function doPost(e) {
 
   switch (action) {
     case 'recordAttendance':
-      result = recordAttendance(data.token, data.studentId);
+      result = recordAttendance(data.token, data.studentId, data.pin);
       break;
     case 'createSession':
-      result = withAdmin(data.adminKey, () => createSession(data.course, data.sessionType, data.sessionDate));
+      result = withAdmin(data.adminKey, () => createSession(data.course, data.sessionType, data.sessionDate, data.pin));
       break;
     case 'toggleSession':
       result = withAdmin(data.adminKey, () => toggleSession(data.token, data.active));
@@ -141,7 +141,8 @@ function validateSession(token) {
           valid: true,
           course: data[i][1],
           sessionType: data[i][2],
-          sessionDate: data[i][3]
+          sessionDate: data[i][3],
+          requiresPin: data[i][6] ? true : false  // column G = PIN
         };
       } else {
         return { valid: false, message: 'This session is no longer active' };
@@ -152,11 +153,12 @@ function validateSession(token) {
   return { valid: false, message: 'Invalid session link' };
 }
 
-function createSession(course, sessionType, sessionDate) {
+function createSession(course, sessionType, sessionDate, pin) {
   const sheet = getSheet('Sessions');
   const token = generateToken();
+  const sessionPin = pin ? String(pin).trim() : '';
 
-  sheet.appendRow([token, course, sessionType, sessionDate, true, 'admin']);
+  sheet.appendRow([token, course, sessionType, sessionDate, true, 'admin', sessionPin]);
 
   return { success: true, token: token };
 }
@@ -238,11 +240,27 @@ function validateStudent(studentId, course) {
 
 // --------------- Attendance ---------------
 
-function recordAttendance(token, studentId) {
+function recordAttendance(token, studentId, pin) {
   // Validate the session first
   const session = validateSession(token);
   if (!session.valid) {
     return { success: false, message: session.message || 'Invalid session' };
+  }
+
+  // Validate PIN if session requires one
+  if (session.requiresPin) {
+    const sheet = getSheet('Sessions');
+    const data = sheet.getDataRange().getValues();
+    let storedPin = '';
+    for (let i = 1; i < data.length; i++) {
+      if (data[i][0] === token) {
+        storedPin = String(data[i][6]).trim();
+        break;
+      }
+    }
+    if (!pin || String(pin).trim() !== storedPin) {
+      return { success: false, pinError: true, message: 'Incorrect session PIN. Please check the PIN displayed in the room.' };
+    }
   }
 
   // Validate the student
@@ -406,7 +424,7 @@ function setupSheets() {
   const sheets = {
     'NURS701_Students': ['StudentID', 'Name'],
     'NURS703_Students': ['StudentID', 'Name'],
-    'Sessions': ['SessionToken', 'Course', 'SessionType', 'SessionDate', 'Active', 'CreatedBy'],
+    'Sessions': ['SessionToken', 'Course', 'SessionType', 'SessionDate', 'Active', 'CreatedBy', 'PIN'],
     'AttendanceLog': ['Timestamp', 'StudentID', 'Name', 'Course', 'SessionType', 'SessionDate', 'SessionToken']
   };
 
