@@ -1,12 +1,11 @@
 ---
 name: fancy-yard-landscaper
-description: Expert landscape designer transforming yards through photo mapping, 3D visualization, seasonal planning, and deep plant knowledge. Specializes in fast-growing privacy screens (knows arborvitae
-  pitfalls), architecture-appropriate design, outdoor living spaces, and realistic maintenance expectations. Activate on "landscape design", "yard design", "garden planning", "plant selection", "privacy
-  screen", "outdoor living", "backyard makeover", "arborvitae", "hedge", "fast growing tree", "landscaping ideas". NOT for interior design (use interior-design-expert), hardscape construction (consult contractors),
-  or lawn care chemicals (consult local experts).
-allowed-tools: Read,Write,Edit,Bash,WebFetch,mcp__stability-ai__stability-ai-generate-image
+description: Landscape designer for New Zealand sections and gardens. Covers photo mapping, sun and wind analysis, seasonal planning, plant selection (natives and exotics), privacy screens, architecture-appropriate design, outdoor living, and realistic maintenance. Uses NZ English, metric units, southern hemisphere seasons, NZ regions and NZ rules (fencing, council limits, biosecurity). Activate on "landscape design", "yard design", "garden design", "section", "garden planning", "plant selection", "privacy screen", "hedge", "outdoor living", "backyard makeover", "native planting", "fast growing tree", "landscaping ideas". NOT for interior design (use interior-design-expert), hardscape construction (consult a licensed contractor and your council), or lawn chemicals (consult a local specialist).
+allowed-tools: Read,Write,Edit,WebFetch,mcp__stability-ai__stability-ai-generate-image
 metadata:
   category: Lifestyle & Personal
+  region: New Zealand
+  adapted-from: curiositech/some_claude_skills (fancy-yard-landscaper)
   pairs-with:
   - skill: interior-design-expert
     reason: Indoor-outdoor design cohesion
@@ -18,392 +17,368 @@ metadata:
   - plants
   - outdoor
   - privacy-screen
+  - new-zealand
 ---
 
-# Fancy Yard Landscaper
+# Fancy Yard Landscaper (New Zealand edition)
 
-Transform your outdoor space into a beautiful, functional landscape with expert plant knowledge and design principles.
+Design a garden that suits your section, your region and the time you will actually spend on it.
+
+Write in NZ English (colour, metre, neighbour, kerb, section). Use metric units and NZ$. Use macrons in te reo Māori plant names (tōtara, kōhūhū, pōhutukawa) and give the common English name beside them.
+
+## Ground rules for this skill
+
+1. **Ask for the region first.** A Northland garden, a Wellington hillside and a Central Otago section need different plants. If you do not know the region, ask before recommending species.
+2. **Flag what you have not verified.** Growth rates, frost tolerance and legal limits vary by cultivar, site and council. Give a range, say it is indicative, and name what to check (local nursery, council, NIWA, Biosecurity NZ).
+3. **Check biosecurity before recommending a species.** See `references/nz-rules-and-biosecurity.md`.
+4. **Do not invent prices.** Tell the user to get quotes from local nurseries and landscapers.
+5. **Southern hemisphere.** North-facing is the sunny side. South-facing is the shady, cold side. Autumn is March to May.
 
 ## When to Use This Skill
 
 **Use for:**
-- Analyzing photos of your yard for design potential
-- Creating landscape plans with visualization
-- Plant selection for your climate and conditions
-- Privacy screening (fast-growing options that actually work)
-- Architecture-complementing design
+- Analysing photos of a section for design potential
+- Landscape plans with visualisation
+- Plant selection for a region, soil, wind and salt exposure
+- Privacy screening (fast options that work, and their costs)
+- Design that suits the house (villa, bungalow, state house, modern)
 - Seasonal planning and phased implementation
-- Understanding what grows tall and fast (and what doesn't)
+- Native planting for birds, shade and low maintenance
 
 **NOT for:**
 - Interior design → use interior-design-expert
-- Hardscape construction (patios, walls) → consult contractors
-- Chemical lawn treatments → consult local lawn services
-- Tree removal → hire certified arborists
-- Irrigation installation → consult irrigation specialists
+- Hardscape construction (patios, retaining walls, decks) → licensed contractors, and check building consent with your council
+- Chemical lawn treatments → local lawn specialists
+- Tree removal near buildings, power lines or protected trees → certified arborists
+- Irrigation installation → irrigation specialists
 
 ## The Design Process
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    LANDSCAPE DESIGN FLOW                         │
+│                    GARDEN DESIGN FLOW                            │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                  │
-│  1. DOCUMENT         2. ANALYZE           3. DESIGN              │
+│  1. DOCUMENT         2. ANALYSE           3. DESIGN              │
 │  ├─ Photos (all      ├─ Sun/shade         ├─ Zones (public/     │
-│  │  angles, times)   │  mapping           │  private/utility)   │
-│  ├─ Measurements     ├─ Soil conditions   ├─ Focal points       │
-│  └─ Existing plants  └─ Drainage          └─ Plant palette      │
+│  │  angles, times)   │  (north = sun)     │  private/utility)   │
+│  ├─ Measurements (m) ├─ Wind and salt     ├─ Focal points       │
+│  └─ Existing plants  ├─ Soil, drainage    └─ Plant palette      │
+│                      └─ Frost pockets                            │
 │                                                                  │
-│  4. VISUALIZE        5. PHASE             6. IMPLEMENT          │
-│  ├─ AI renders       ├─ Priority items    ├─ Seasonal timing    │
-│  ├─ Plan drawings    ├─ Budget tiers      ├─ DIY vs. hire       │
-│  └─ Plant lists      └─ Year 1/2/3+       └─ Maintenance plan   │
+│  4. CHECK RULES      5. PHASE             6. IMPLEMENT          │
+│  ├─ Council/district ├─ Priority items    ├─ Autumn planting    │
+│  │  plan limits      ├─ Budget tiers      ├─ DIY vs. hire       │
+│  ├─ Boundary/fence   └─ Year 1/2/3+       └─ Maintenance plan   │
+│  └─ Services, lines                                              │
 │                                                                  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ## Photo Documentation Guide
 
-### What Photos to Take
-
 ```
 ESSENTIAL SHOTS:
-├── Overview from each corner of property
+├── Overview from each corner of the section
 ├── From each window looking out
-├── Problem areas (drainage, erosion, bare spots)
+├── Problem areas (wet patches, erosion, bare spots, slumping)
 ├── Existing plants you want to keep
-├── Neighbor views you want to screen
+├── Neighbour views you want to screen
 └── Architecture details for style matching
 
 TIMING:
-├── Morning (east sun exposure)
-├── Midday (overhead sun/shade patterns)
-├── Evening (west exposure, golden hour beauty)
-├── If possible: winter vs summer foliage
+├── Morning (east)
+├── Midday (overhead sun and shade patterns)
+├── Late afternoon (west; hot in summer)
+├── Winter as well as summer: a spot sunny in January can be
+│   in shade from June to August, especially on south-facing sites
 
 INCLUDE IN FRAME:
-├── Property lines/fences
-├── Utility boxes/meters
+├── Boundaries and fences
+├── Meter boxes, gully traps, stormwater and sewer access
 ├── Windows and doors
-├── HVAC units, septic covers
-└── Overhead wires
+├── Heat pumps, hot water cylinders, water tanks
+└── Overhead power and phone lines
 ```
 
-## Fast-Growing Privacy Plants: The Truth
+Ask the user for: region or suburb, aspect (which way the main lawn faces), whether the site is windy or near the sea, the soil type (clay, pumice, sand, free-draining), and how many hours a week they will spend on the garden.
 
-### The Arborvitae Reality Check
+## Privacy Screens: The Honest Version
 
-```
-ARBORVITAE (Thuja) - Everybody's First Choice
-
-Common types:
-├── 'Emerald Green' - Narrow, 12-15' mature height
-├── 'Green Giant' - Fast, 40-60' mature height
-└── 'American' - Native, 40-60' mature height
-
-THE PROBLEMS NOBODY TELLS YOU:
-├── Deer LOVE them (will eat to sticks in one winter)
-├── Bagworms can devastate entire hedges
-├── Heavy snow/ice breaks branches (often permanently)
-├── Root-bound nursery stock often fails
-├── They brown from inside out as they age
-├── 'Emerald Green' often dies in extreme cold
-└── They look sparse for 3-5 years before filling in
-
-VERDICT: Consider carefully. Have backup plan.
-```
-
-### Better Privacy Screen Options by Speed
+Full detail is in `references/privacy-screens.md`. The short version:
 
 ```
-VERY FAST (3-5' per year):
-├── Hybrid Willow - 6-10'/year, but SHORT-LIVED (15-20 years)
-├── Lombardy Poplar - 6'/year, but DISEASE-PRONE, messy
-├── Leyland Cypress - 3-4'/year, but BAGWORM/DISEASE susceptible
-└── Eastern Red Cedar - 2-3'/year, TOUGH but slow to fill
+FAST GROWTH USUALLY MEANS A PRICE:
+├── Leyland cypress: fast, very common, and a frequent source of
+│   neighbour disputes (height, shade, roots, dry soil beneath)
+├── Very fast natives (e.g. karo) are often frost-tender or
+│   short-lived
+├── Slow, long-lived choices (tōtara) cost less to fix later
 
-FAST (2-3' per year):
-├── Cryptomeria 'Yoshino' - 3'/year, graceful, deer-resistant
-├── Green Giant Arborvitae - 3'/year, if deer aren't an issue
-├── Dawn Redwood - 2-3'/year, deciduous but stunning
-└── Nellie Stevens Holly - 2-3'/year, evergreen, berries
-
-MEDIUM (1-2' per year) BUT BETTER LONG-TERM:
-├── Eastern White Pine - 2'/year, soft texture, needs space
-├── Norway Spruce - 2'/year, classic, very hardy
-├── Canadian Hemlock - 1'/year, shade-tolerant, elegant
-├── American Holly - 1'/year, native, wildlife value
-└── Southern Magnolia - 1-2'/year (zones 7+), broadleaf evergreen
-
-THE HARD TRUTH:
-Fast growth often = weak wood, disease problems, short lifespan
-The best privacy screens are planted 10 years ago.
-Second best time: this fall.
+BETTER MIXED THAN SINGLE-SPECIES:
+├── One pest or disease can take out a whole one-species hedge
+│   (myrtle rust is the current NZ example for Myrtaceae)
+├── Mix 2-3 compatible species with different heights
+└── Stagger planting so gaps close at different rates
 ```
 
-### Privacy Screening Decision Tree
+### Privacy Decision Tree
 
 ```
-How quickly do you NEED privacy?
+How quickly do you need privacy?
 ├── ASAP (1-2 years)
-│   └── Consider fence + fast growers
-│       ├── Fence provides immediate privacy
-│       └── Plants soften and eventually replace
+│   └── Fence or screen first, plants second
+│       ├── Fence gives privacy now (check height limit and consent)
+│       └── Plants soften it and can be smaller and cheaper
 │
 ├── Medium-term (3-5 years)
-│   └── Plant mid-sized specimens now
-│       ├── 6-8' plants ($100-300 each)
+│   └── PB18-size plants of fast, reliable species
 │       └── Mix species for resilience
 │
-└── Long-term thinking (5+ years)
-    └── Plant smaller, healthier stock
-        ├── 3-5' plants ($30-75 each)
-        ├── Establish better root systems
-        └── Outperform larger transplants within 5 years
-
-BUDGET REALITY:
-├── Cheap/fast route often needs replacing in 10-15 years
-├── Quality/patient route lasts generations
-└── Consider: which will you regret more?
+└── Long-term (5+ years)
+    └── Smaller, healthier stock (PB3-PB12)
+        ├── Better root systems
+        └── Often matches larger plants within a few years
 ```
+
+Check the boundary rules before planting a hedge or building a fence. See `references/nz-rules-and-biosecurity.md`.
 
 ## Plant Selection by Condition
 
-### Sun Exposure Guide
+### Sun, shade and aspect (southern hemisphere)
 
 ```
-FULL SUN (6+ hours direct sun):
-├── Most flowering shrubs (roses, hydrangea paniculata)
-├── Ornamental grasses
-├── Fruit trees
-├── Most privacy hedges
-└── Lavender, salvia, coneflowers
+NORTH-FACING (sunniest, warmest):
+├── Best for outdoor living, vegetable beds, fruit trees
+├── Sun-lovers: lavender, salvia, flax (harakeke), kōwhai
+└── Watch summer heat and drying winds
 
-PART SHADE (3-6 hours sun):
-├── Hydrangea (macrophylla, quercifolia)
-├── Azaleas and rhododendrons
-├── Japanese maples
-├── Hostas, ferns
-└── Astilbe, heuchera
+EAST-FACING: gentle morning sun; good for most plants
+WEST-FACING: hot afternoon sun; use tough plants, shade the house
 
-FULL SHADE (less than 3 hours):
-├── Hostas, ferns, wild ginger
-├── Pachysandra, vinca groundcovers
-├── Canadian hemlock (privacy)
-├── Some hydrangeas (oak leaf)
-└── Coral bells, bleeding heart
+SOUTH-FACING (coldest, shadiest, damp in winter):
+├── Ferns (ponga, kawakawa where frost is light), hostas
+├── Shade-tolerant natives: kawakawa, kāpuka, māhoe, Coprosma
+├── Camellias, rhododendrons
+└── Expect moss and slow drying; avoid hard-to-shade lawn
 ```
 
-### Deer Resistance Reality
+### Wind and salt
 
 ```
-DEER-RESISTANT (not deer-proof):
-├── Ornamental grasses
-├── Lavender, Russian sage, catmint
-├── Boxwood (usually)
-├── Japanese pieris
-├── Barberry (invasive in some areas)
-├── Most ferns
-└── Daffodils, alliums
+COASTAL / VERY WINDY (salt-tolerant):
+├── Taupata (Coprosma repens), karo (Pittosporum crassifolium)
+├── Akeake (Dodonaea viscosa), Olearia species
+├── Harakeke (flax), toetoe, pōhuehue (Muehlenbeckia)
+└── Escallonia, Griselinia (kāpuka)
 
-DEER CANDY (they WILL eat):
-├── Hostas
-├── Arborvitae
-├── Rhododendrons and azaleas
-├── Tulips
-├── Daylilies
-├── Roses
-└── Most fruit trees
-
-STRATEGY IN HIGH-DEER AREAS:
-├── Accept some plants are off the menu
-├── Deer fencing (8' minimum for dedicated deer)
-├── Repellent rotation (they adapt)
-├── Plant sacrificial perimeter
-└── Native plants deer evolved with = more resistant
+SHELTER FIRST:
+Plant a tough windbreak, then tender plants behind it.
 ```
 
-## Architecture-Matched Design
-
-### House Style → Landscape Style
+### Pests and browsing in NZ
 
 ```
-COLONIAL/TRADITIONAL:
-├── Formal symmetry
-├── Boxwood hedges, foundation shrubs
-├── Classic perennial borders
-├── Brick or stone paths
-└── Traditional roses, hydrangeas
+COMMON NZ PROBLEMS (varies by region):
+├── Possums and rabbits (esp. rural and lifestyle blocks)
+├── Rats (eat fruit; use secure bins and compost)
+├── Sap-sucking insects (aphids, scale, whitefly) and sooty mould
+├── Myrtle rust on Myrtaceae (pōhutukawa, rātā, mānuka, kānuka,
+│   ramarama, feijoa, lilly pilly)
+├── Kauri dieback (kauri areas: clean footwear and tools, do not
+│   move soil)
+└── Phytophthora root rot in wet, heavy soils
 
-MODERN/CONTEMPORARY:
+DEER: mainly an issue near bush margins and some rural areas,
+not in most urban gardens. Do not assume the deer problems that
+US guides describe. Ask where the section is.
+```
+
+## Architecture-Matched Design (NZ house styles)
+
+```
+VILLA (Victorian/Edwardian) and COTTAGE:
+├── Cottage garden, roses, hydrangeas, camellias
+├── Picket fence, clipped hedge at the front
+└── Mature street trees and lawn are typical
+
+CALIFORNIAN BUNGALOW (1910s-1930s):
+├── Simple structure, native and exotic mix
+├── Stone or brick low walls, pergolas
+└── Layered planting: hebes, flax, ferns, roses
+
+ART DECO / SPANISH MISSION (e.g. Napier, Hastings):
+├── Geometric layout, clipped forms
+├── Palms, succulents, gravel courts
+└── Bold, restrained colour
+
+STATE HOUSE (1930s-1960s) and 1950s-70s:
+├── Productive garden: fruit trees, vegetable beds, herbs
+├── Mixed hedges (lemon tree, feijoa, native shrubs)
+└── Simple lawn, clothesline area, shed
+
+MID-CENTURY / CONTEMPORARY / MODERN:
 ├── Asymmetric, sculptural
-├── Ornamental grasses, architectural plants
-├── Minimalist plant palette (repeat!)
-├── Concrete, steel, gravel hardscape
-└── Green walls, dramatic specimens
+├── Repeated masses of Astelia, Libertia, Carex, tussocks,
+│   Phormium, Muehlenbeckia
+├── Concrete, timber, gravel, corten steel
+└── Feature tree (e.g. tī kōuka, Japanese maple, olive)
 
-CRAFTSMAN/BUNGALOW:
-├── Naturalistic, arts-and-crafts feeling
-├── Native plants, cottage garden style
-├── Stone walls, wood arbors
-├── Mix of formal structure + flowing plants
-└── Ferns, hostas, informal hedges
+1980s-2000s BRICK-AND-TILE / TERRACED:
+├── Often small, shaded, hedged in
+├── Container gardens, layered natives, a few clean lines
+└── Reduce lawn; use permeable paving to help stormwater
 
-FARMHOUSE:
-├── Mix of utility and beauty
-├── Kitchen gardens, cutting gardens
-├── Picket fences, informal hedges
-├── Heirloom varieties
-└── Meadow plantings, pollinator gardens
-
-MID-CENTURY MODERN:
-├── Bold, geometric
-├── Desert-adapted or sculptural plants
-├── Specimen trees (Japanese maple, olive)
-├── Gravel, aggregate, pavers
-└── Indoor-outdoor flow
+LIFESTYLE BLOCK / RURAL:
+├── Shelterbelts, native regeneration areas, orchards
+├── Fence stock and rabbits out, then plant
+└── Plan for wind, frost and fire risk (fire-resistant planting
+    near buildings in dry regions)
 ```
 
-## Seasonal Planning
-
-### When to Plant What
+## Seasonal Planning (southern hemisphere)
 
 ```
-SPRING (after last frost):
-├── Annuals and tender perennials
-├── Warm-season grasses
-├── Container plantings
-└── Vegetable gardens
+AUTUMN (March-May): BEST TIME FOR TREES AND SHRUBS
+├── Soil is still warm, rain is returning
+├── Roots grow before winter and are ready for spring
+├── Native trees, hedges, spring bulbs, perennial divisions
+└── Garlic; sow grass seed in mild regions
 
-FALL (6 weeks before freeze):
-├── Trees and shrubs (BEST TIME)
-├── Spring bulbs
-├── Cool-season grasses (seed)
-├── Perennial divisions
-└── Garlic
+WINTER (June-August):
+├── Bare-root and deciduous planting, pruning
+├── Plant in frost-free regions; in cold regions wait for
+│   late winter/spring for frost-tender species
+└── Plan and prepare beds
 
-WHY FALL PLANTING IS BEST:
-├── Roots grow while tops are dormant
-├── Winter rain establishes roots
-├── Less transplant shock (cool temps)
-├── Plants are often on sale
-└── Spring = immediate growth
+SPRING (September-November): after the last frost in your area
+├── Annuals, tender perennials, vegetables, containers
+├── Frost-tender natives in cold regions (e.g. Canterbury,
+│   Central Otago, central North Island)
+└── Watch for late frosts; keep frost cloth ready
+
+SUMMER (December-February):
+├── Avoid planting in dry spells unless you can water well
+├── Mulch and water deeply and less often
+└── Check council water restrictions
 ```
+
+Last-frost and first-frost dates vary a lot: some Northland and coastal sites see almost none; inland Canterbury, Central Otago and Southland can see frost into October or later. Ask for the local date or check with a local nursery or NIWA.
 
 ### Phased Implementation
 
 ```
 YEAR 1 (Bones):
-├── Trees (they take longest)
-├── Major hardscape
-├── Irrigation rough-in
-└── Screening/privacy plants
+├── Trees and shelter (they take longest)
+├── Services, drainage, major hardscape (with consent as needed)
+├── Fencing and boundary work
+└── Screening plants
 
 YEAR 2 (Structure):
-├── Large shrubs
-├── Paths and borders
-├── Irrigation refinement
-└── Raised beds if desired
+├── Large shrubs and hedges
+├── Paths, borders, raised beds
+└── Irrigation refinement
 
-YEAR 3+ (Flesh):
+YEAR 3+ (Fill):
 ├── Perennials and groundcovers
-├── Fine-tuning
-├── Annual color spots
-└── Maintenance refinement
-
-BUDGET TIP: This phasing lets you spend money
-where it matters most first (trees!).
+├── Fine-tuning and colour
+└── Maintenance routine
 ```
 
-## Visualization Tools
+## Outdoor Living
 
-### AI Landscape Rendering
+- Put the main sitting area on the north or west side for sun, and shade it in summer. UV levels in NZ are high in summer, so plan shade (pergola, umbrella, deciduous tree) for children and adults.
+- Plan for wind. A low screen or planted shelter often improves an outdoor room more than extra paving.
+- Check building consent for decks, pergolas, retaining walls and taller fences with your council.
+- Toxic plants: check before planting near children or pets (for example karaka kernels, tutu, oleander, angel's trumpet).
+
+## Visualisation Tools
 
 ```
-For Stability AI / Ideogram renders:
+For AI renders (image tool if available):
 
 PROMPT STRUCTURE:
-[style] landscape design, [house type], [key plants],
+[style] New Zealand garden design, [house type], [key plants],
 [season], [time of day], [specific features],
-professional landscape photography, magazine quality
+professional garden photography, magazine quality
 
 EXAMPLE:
-"Modern farmhouse backyard landscape design,
-green giant arborvitae privacy screen along fence,
-ornamental grasses in foreground, stone patio,
-early autumn, golden hour lighting,
-native pollinator garden border,
-professional landscape photography"
+"Modern New Zealand villa backyard garden design,
+kōhūhū and taupata mixed hedge along timber fence,
+harakeke and tussock beds in foreground, timber deck,
+late summer, golden hour light, native bird-friendly planting,
+professional garden photography"
 
 REQUEST MULTIPLE ANGLES:
 ├── Front elevation
 ├── Backyard overview
-├── Patio-eye-view
-└── Aerial/plan view
+├── Deck-eye view
+└── Aerial / plan view
 ```
+
+AI renders show a mature garden. Tell the user that real plants take years to reach that size.
 
 ## Anti-Patterns
 
 ### "I Want It to Look Mature Now"
-**Wrong**: Planting 12' trees at $500+ each.
-**Why**: Large transplants often struggle; smaller stock catches up in 3-5 years.
-**Right**: Plant 6-8' trees, invest savings in soil prep and irrigation.
+**Wrong**: Buying very large plants (e.g. PB95+) for a hedge.
+**Why**: Large plants cost more and can struggle after planting; smaller stock often catches up.
+**Right**: Buy PB12-PB18 plants, spend the saving on soil prep, mulch and watering.
 
 ### "One Species Hedge"
-**Wrong**: 50 feet of identical arborvitae.
-**Why**: One disease/pest wipes out entire screen.
-**Right**: Mix 2-3 compatible species for resilience.
+**Wrong**: 20 m of identical plants.
+**Why**: One pest, disease or frost event takes out the lot.
+**Right**: Mix 2-3 compatible species.
 
-### "Foundation Planting Right Against House"
-**Wrong**: Shrubs touching the house.
-**Why**: Moisture damage, pest entry, plant stress, access problems.
-**Right**: Plant mature-width away from foundation.
+### "Planting Against the House"
+**Wrong**: Shrubs and trees touching the walls or foundations.
+**Why**: Moisture, pests, gutter blockage, root damage to drains.
+**Right**: Plant at least half the mature width away from the house, further for large trees.
 
 ### "Ignoring Mature Size"
-**Wrong**: Planting Green Giant arborvitae 4' from fence.
-**Why**: They grow 40-60' tall and 12-20' wide.
-**Right**: Research mature size. Plant for 20 years from now.
+**Wrong**: Planting Leyland cypress 1 m from a fence.
+**Why**: It reaches 15-20 m or more and blocks sun, views and neighbours' patience.
+**Right**: Look up mature height and spread, and plan for 20 years ahead.
 
-### "Cheap Nursery Stock"
-**Wrong**: Big-box store clearance plants.
-**Why**: Often root-bound, stressed, or wrong for your zone.
-**Right**: Local nurseries, native plant sales, mail-order specialists.
+### "Cheap or Unsuitable Stock"
+**Wrong**: Root-bound or stressed plants, or plants for a warmer region.
+**Right**: Local nurseries, plants labelled for your region, and native plant nurseries (eco-sourced natives where possible).
 
-## Quick Reference Tables
+### "Forgetting the Rules"
+**Wrong**: Planting a tall hedge on the boundary or a large tree under power lines without checking.
+**Right**: Check your district plan and see `references/nz-rules-and-biosecurity.md`.
 
-### Fast-Growing Trees by Region
+## Quick Reference: Common NZ Screening and Hedge Plants
 
-| Tree | Annual Growth | Mature Size | Zones | Notes |
-|------|--------------|-------------|-------|-------|
-| Hybrid Poplar | 5-8' | 40-50' | 3-9 | Short-lived, messy |
-| Weeping Willow | 3-8' | 30-40' | 4-9 | Needs water, invasive roots |
-| Tulip Tree | 2-3' | 70-90' | 4-9 | Native, needs space |
-| Dawn Redwood | 2-3' | 70-100' | 5-8 | Deciduous conifer, stunning |
-| River Birch | 2-3' | 40-70' | 4-9 | Native, peeling bark |
-| Red Maple | 2' | 40-60' | 3-9 | Native, fall color |
-| Bald Cypress | 2' | 50-70' | 4-10 | Deciduous, tough |
+Growth rates are indicative for good conditions. Verify with a local nursery.
 
-### Privacy Screen Plant Spacing
-
-| Plant | Mature Width | Spacing for Hedge | Screen Fill Time |
-|-------|-------------|-------------------|------------------|
-| Arborvitae 'Emerald' | 3-4' | 2-3' apart | 4-6 years |
-| Arborvitae 'Green Giant' | 12-20' | 5-6' apart | 3-5 years |
-| Leyland Cypress | 10-15' | 4-6' apart | 3-4 years |
-| Nellie Stevens Holly | 10-12' | 5-6' apart | 5-7 years |
-| Eastern Red Cedar | 8-15' | 4-6' apart | 5-8 years |
-| Skip Laurel | 6-10' | 4-5' apart | 4-6 years |
+| Plant | Type | Mature size (typical) | Speed | Notes |
+|-------|------|----------------------|-------|-------|
+| Kōhūhū / Pittosporum tenuifolium | Native | 3-8 m | Fast | Many cultivars; clips well; some frost tolerance |
+| Tōtara / Podocarpus totara | Native | Hedge 2-4 m (tree much larger) | Moderate | Hardy, long-lived, clips well |
+| Kāpuka / Griselinia littoralis | Native | 3-6 m | Moderate | Good coastal hedge; frost-hardy but not in very cold |
+| Taupata / Coprosma repens | Native | 2-4 m | Moderate to fast | Salt-tolerant; frost-tender inland |
+| Karo / Pittosporum crassifolium | Native | 3-6 m | Fast | Coastal windbreak; frost-tender |
+| Akeake / Dodonaea viscosa | Native | 3-6 m | Fast | Wind- and salt-tolerant |
+| Lemonwood / Pittosporum eugenioides | Native | 6-10 m | Moderate to fast | Larger screen |
+| Portuguese laurel | Exotic | 4-8 m | Fast | Popular, dense; check local weed status |
+| Photinia 'Red Robin' | Exotic | 3-5 m | Moderate to fast | Colourful new growth; disease-prone in humid regions |
+| Escallonia | Exotic | 2-3 m | Moderate | Good coastal hedge |
+| Clumping bamboo | Exotic | 3-8 m | Fast | Use clumping types only, not running types |
+| Leyland cypress | Exotic | 15-30 m | Very fast | Often too big; frequent boundary disputes |
 
 ## Integration Points
 
 - **interior-design-expert**: Indoor-outdoor flow design
 - **collage-layout-expert**: Garden photo documentation
-- **color-theory-palette-harmony-expert**: Seasonal color planning
-- **drone-cv-expert**: Aerial property mapping
+- **color-theory-palette-harmony-expert**: Seasonal colour planning
+- **drone-cv-expert**: Aerial section mapping
+
+See also:
+- `references/privacy-screens.md`: Privacy screen detail (NZ)
+- `references/nz-rules-and-biosecurity.md`: Council, boundary, biosecurity and safety checks
+- `NZ-CHANGES.md`: What was changed from the upstream skill
 
 ---
 
-**Core Philosophy**: Great landscapes grow from understanding—understanding your site, your climate, your maintenance reality, and the true nature of plants. The best garden is one that thrives with the attention you'll actually give it, not the attention you imagine you'll give.
-
-Plant for your future self. That person will thank you.
+**Core Philosophy**: Good gardens come from understanding your site, your region, your maintenance time and how plants actually behave. Design for the attention you will give the garden, not the attention you plan to give it.

@@ -1,391 +1,270 @@
-# Privacy Screen Plant Guide
+# Privacy Screen Plant Guide (New Zealand)
 
-## The Real Talk on Fast-Growing Privacy
+Growth rates and sizes below are indicative. They vary by cultivar, soil, wind, frost and water. Confirm with a local nursery before buying. Metric units throughout.
 
-### The Hard Truth
+## The Honest Version
 
 ```
 WHAT PEOPLE WANT:
-├── Instant privacy (plant today, hidden tomorrow)
-├── Low maintenance (plant and forget)
-├── Evergreen (green all year)
-├── Cheap (spend little, get lot)
-├── Beautiful (magazine-worthy)
-└── Lives forever
+├── Instant privacy
+├── Low maintenance
+├── Evergreen
+├── Cheap
+├── Attractive
+└── Lasts for decades
 
-REALITY:
-├── Fast growth = weak wood, short life
-├── Low maintenance = more maintenance than expected
-├── Evergreen options have trade-offs
-├── Cheap plants often fail
-├── Beautiful takes time and care
-└── Everything dies eventually
+WHAT USUALLY HAPPENS:
+├── Fast growth often comes with a cost: size, clipping, pests, or a short life
+├── "Low maintenance" still needs watering for 2 summers and a yearly clip
+├── Evergreen options each have a trade-off
+├── Cheap or unsuitable stock fails more often
+└── Plants outgrow their space if you ignore mature size
 
-THE REAL FORMULA:
-Good privacy = Time + Right Plant + Proper Spacing + Patience
+FORMULA:
+Good privacy = Right plant + Right spacing + Water while young + Time
 ```
 
-## The Arborvitae Problem (Read This First)
+## Step 1: Choose by Site
 
-### Why Everyone Buys Them
+Ask, in this order:
 
-```
-ARBORVITAE APPEAL:
-├── Evergreen (check)
-├── Affordable at nursery (check)
-├── "Fast growing" on label (check)
-├── Columnar shape (perfect for screens)
-└── Available everywhere (check)
+1. **Region and frost.** Frost-free coastal Northland allows plants that die in Canterbury or Central Otago.
+2. **Wind and salt.** Exposed and coastal sites need tough species first.
+3. **Aspect and shade.** South-facing boundaries stay damp and cold; sun-loving hedges struggle there.
+4. **Soil.** Heavy clay holds water; pumice and sand drain fast and dry out.
+5. **Height allowed.** Check your district plan and the boundary rules (see `nz-rules-and-biosecurity.md`).
+6. **How much room.** Mature width matters as much as height.
 
-THEN REALITY HITS...
-```
-
-### What Nobody Tells You
+## Step 2: Native Options
 
 ```
-ARBORVITAE PROBLEMS
-───────────────────
+KŌHŪHŪ / PITTOSPORUM TENUIFOLIUM
+├── Native evergreen; many cultivars (foliage colour and size vary)
+├── Fast for a native; clips well
+├── Mature height depends on cultivar (commonly 3-8 m)
+├── Reasonable frost tolerance in many regions
+├── Tolerates wind; suits mixed hedges
+└── Good all-round choice. Check the cultivar's size on the label.
 
-1. DEER DEVASTATION
-   ├── Deer find arborvitae delicious
-   ├── Will eat to bare sticks in one winter
-   ├── Especially 'Emerald Green' (deer candy)
-   ├── Once damaged, often never recovers
-   └── Deer pressure varies by region, but be warned
+TŌTARA / PODOCARPUS TOTARA
+├── Native conifer; hardy and long-lived
+├── Moderate growth; clips to a dense hedge
+├── Suits most regions (verify for your area)
+└── Good long-term choice if you can wait a few years
 
-2. BAGWORM INFESTATION
-   ├── Small moth larvae that build "bags" on branches
-   ├── Can kill entire hedge in 1-2 seasons
-   ├── Hard to spot until damage is severe
-   ├── Spreads rapidly through dense plantings
-   └── Chemical treatment needed
+KĀPUKA / GRISELINIA LITTORALIS (broadleaf)
+├── Native, glossy leaves
+├── Moderate growth; good hedge; good coastal tolerance
+├── Can struggle in very wet clay
+└── Check cultivar size; stock is often sold for hedging
 
-3. SNOW/ICE DAMAGE
-   ├── Heavy snow bends and breaks branches
-   ├── Ice storms devastating to columnar forms
-   ├── Once bent, rarely returns to shape
-   ├── May need wrapping in winter (who wants that?)
-   └── 'Emerald Green' especially vulnerable
+TAUPATA / COPROSMA REPENS
+├── Native, salt- and wind-tolerant, glossy leaves
+├── Moderate to fast
+├── Frost-tender inland and in cold regions
+└── Strong choice for coastal sections
 
-4. BROWNING FROM INSIDE
-   ├── Normal shedding looks alarming
-   ├── But also indicates stress
-   ├── Drought stress shows as browning
-   ├── Spider mites cause bronze discoloration
-   └── Hard to tell normal from problem
+KARO / PITTOSPORUM CRASSIFOLIUM
+├── Native coastal tree; fast
+├── Frost-tender; can be short-lived
+└── Good as a fast windbreak in mild, coastal sites
 
-5. ROOT PROBLEMS
-   ├── Shallow root system
-   ├── Prone to blowing over in wind
-   ├── Circling roots from nursery pots
-   ├── Root-bound stock often fails
-   └── Needs good drainage (rots in wet soil)
+AKEAKE / DODONAEA VISCOSA
+├── Native; tough in wind and salt
+├── Fast; dark or purple-leaved forms available
+└── Frost-tender in cold areas
 
-6. SLOW TO ESTABLISH
-   ├── "Fast growing" = 6-12" per year
-   ├── Takes 3-5 years to provide real privacy
-   ├── First year or two: mostly rooting
-   └── Don't expect instant gratification
+LEMONWOOD (TARATA) / PITTOSPORUM EUGENIOIDES
+├── Native; larger screen or shelter
+├── Moderate to fast; scented flowers
+└── Needs room (can reach 6-10 m or more)
+
+KARAMŪ / COPROSMA ROBUSTA
+├── Native; fast; hardy in many regions
+└── Good for mixed native screens; birds eat the fruit
+
+HARAKEKE (FLAX) AND TOETOE
+├── Native; good for low screens and wind breaks
+├── Fast; suits wet or dry sites depending on species
+└── Not year-round solid privacy at eye-level in a narrow space
+
+KAWAKAWA
+├── Native; good in shade and in mild, frost-light areas
+└── Leaves have holes from insects (normal)
+
+AVOID or USE WITH CARE:
+├── Kānuka, mānuka, pōhutukawa, rātā, ramarama: Myrtaceae are
+│   affected by myrtle rust. Check current advice from
+│   Biosecurity NZ or MPI and buy from a reputable nursery.
+└── Tutu (Coriaria) and other toxic natives near children,
+    pets or stock
 ```
 
-### Arborvitae Variety Breakdown
-
-| Variety | Mature Height | Growth Rate | Deer Resistance | Cold Hardy | Best For |
-|---------|--------------|-------------|-----------------|------------|----------|
-| 'Emerald Green' | 12-15' | 6-9"/yr | LOW (eaten) | Zone 4-8 | Small spaces, IF no deer |
-| 'Green Giant' | 40-60' | 3-4'/yr | MEDIUM | Zone 5-9 | Large properties |
-| 'North Pole' | 10-15' | 6-9"/yr | LOW | Zone 3-7 | Cold climates |
-| 'Techny' | 10-15' | 12"/yr | MEDIUM | Zone 3-8 | Midwest/cold areas |
-| 'American' (wild type) | 40-60' | 12-18"/yr | LOW | Zone 2-7 | Native, large spaces |
-
-### The Verdict
+## Step 3: Exotic Options
 
 ```
-PLANT ARBORVITAE IF:
-├── You're in a low-deer area (confirm with neighbors)
-├── You're willing to monitor for bagworms
-├── You can wrap them in winter OR accept some damage
-├── You have patience for 3-5 year establishment
-└── You have backup plan if they fail
+PORTUGUESE LAUREL (Prunus lusitanica)
+├── Popular, dense, dark evergreen
+├── Fast; clips well
+├── Mature 4-8 m if unclipped
+├── Check local weed status; it can self-seed in some regions
+└── Leaves and seeds are toxic if eaten
 
-DON'T PLANT ARBORVITAE IF:
-├── You've seen deer in your neighborhood
-├── You want truly low maintenance
-├── Heavy snow/ice is common
-├── You need privacy in under 3 years
-└── You can't handle watching them struggle
+PHOTINIA 'RED ROBIN'
+├── Red new growth; moderate to fast
+├── Can suffer leaf spot in humid climates
+└── Better in mixed hedges than as the only species
+
+ESCALLONIA
+├── Good coastal hedge; flowers
+├── Moderate growth; 2-3 m typical
+└── Semi-evergreen in colder areas
+
+CAMELLIA SASANQUA
+├── Slower but reliable; flowers in autumn and winter
+├── Good for shaded south-facing boundaries
+└── Needs regular water when young
+
+CLUMPING BAMBOO (Bambusa, Fargesia and similar)
+├── Fast, dense, narrow footprint
+├── Clumping types stay in place; RUNNING types (e.g. Phyllostachys)
+│   spread and are hard to remove. Do not plant running types
+│   near boundaries or drains.
+└── Check the label and ask the nursery which type it is
+
+LEYLAND CYPRESS (× Cuprocyparis leylandii)
+├── Very fast; very common in NZ
+├── Grows 15-30 m if unmanaged; casts long shade; dries soil
+├── Frequent source of boundary disputes and tree-work costs
+├── Trim hard to stay small, but it may not regrow from old wood
+└── Consider only where you have room and will clip 1-2 times a year
+
+THUJA / ARBORVITAE (e.g. 'Green Giant', 'Emerald')
+├── Less common in NZ than in North America
+├── Typical NZ problems are drought stress and root rot in wet clay,
+│   not the deer and bagworm problems described in US guides
+├── Ask a local nursery for which cultivars they see thriving locally
+└── Verify with a local supplier before choosing
+
+AVOID:
+├── Privet (Chinese privet is a listed pest plant): see NPPA
+├── Sweet pittosporum (Pittosporum undulatum): a weed in NZ
+├── Running bamboo
+└── Any plant on the NPPA or your regional pest plan
 ```
 
-## Better Alternatives
-
-### The Privacy All-Stars
-
-```
-SKIP LAUREL (Prunus laurocerasus 'Schipkaensis')
-────────────────────────────────────────────────
-├── Evergreen broadleaf
-├── Deer resistant (toxic to them)
-├── Fast: 2-3' per year
-├── Mature: 10-15' tall, 5-7' wide
-├── Zones 6-9
-├── Tolerates shade
-├── Glossy, attractive leaves
-├── Easy to shape
-└── CAN freeze back in harsh winters (Zone 5 borderline)
-
-SPACING: 4-5' apart for hedge
-COST: $$$ (more than arborvitae)
-VERDICT: Excellent choice for moderate climates
-
-───────────────────────────────────────────────
-
-NELLIE STEVENS HOLLY (Ilex x 'Nellie R. Stevens')
-─────────────────────────────────────────────────
-├── Evergreen broadleaf
-├── Deer resistant
-├── Fast: 2-3' per year
-├── Mature: 15-25' tall, 8-12' wide
-├── Zones 6-9
-├── Red berries (with pollinator)
-├── Classic look
-├── Very reliable
-└── Needs male pollinator for berries (optional)
-
-SPACING: 5-6' apart
-COST: $$
-VERDICT: Workhorse of the privacy hedge world
-
-───────────────────────────────────────────────
-
-CRYPTOMERIA 'YOSHINO' (Japanese Cedar)
-──────────────────────────────────────
-├── Evergreen conifer
-├── Deer resistant
-├── Fast: 2-3' per year
-├── Mature: 30-40' tall, 15-20' wide
-├── Zones 6-9
-├── Graceful, feathery texture
-├── Beautiful bronze winter color
-├── Rarely bothered by pests
-└── Needs space to grow out
-
-SPACING: 6-8' apart (wider than expected)
-COST: $$$
-VERDICT: Elegant alternative to Leyland cypress
-
-───────────────────────────────────────────────
-
-EASTERN RED CEDAR (Juniperus virginiana)
-────────────────────────────────────────
-├── Native evergreen
-├── Deer resistant (not preferred)
-├── Medium: 1-2' per year
-├── Mature: 40-50' tall, 15-25' wide
-├── Zones 2-9 (extremely hardy)
-├── Wildlife value (cedar waxwings!)
-├── Tolerates poor soil, drought
-├── Very long-lived
-└── Blue berries on females
-
-SPACING: 6-10' apart (allow for width)
-COST: $ (often cheap, sometimes free from conservation districts)
-VERDICT: Tough as nails, native, excellent long-term choice
-
-───────────────────────────────────────────────
-
-NORWAY SPRUCE (Picea abies)
-───────────────────────────
-├── Evergreen conifer
-├── Deer resistant
-├── Fast when young: 2-3' per year
-├── Mature: 40-60' tall, 25-30' wide
-├── Zones 3-7
-├── Classic Christmas tree shape
-├── Very cold hardy
-├── Long-lived (centuries)
-└── Needs room! Gets wide.
-
-SPACING: 10-15' apart (they get BIG)
-COST: $-$$
-VERDICT: Beautiful, reliable, but give them space
-```
-
-### For Smaller Spaces
-
-```
-COMPACT OPTIONS (under 15' mature height)
-─────────────────────────────────────────
-
-'Green Mountain' Boxwood - 5' tall, very formal
-Sky Pencil Holly - 10' tall, only 2' wide (columnar)
-Emerald Green Arborvitae - IF deer aren't an issue
-Spartan Juniper - 15' tall, 5' wide, very columnar
-Wax Myrtle - 12-15' tall, semi-evergreen South
-```
-
-## Spacing Formula
-
-### How Far Apart?
+## Spacing
 
 ```
 SPACING FORMULA
-───────────────
+Dense hedge:     plant at about 40-60% of mature width
+Natural screen:  plant at about 70-90% of mature width
 
-For a dense hedge:
-Plant at 60-70% of mature width
+PRACTICAL RULES:
+├── Small-leaved hedge (taupata, kōhūhū): about 0.6-1 m apart
+├── Larger shrubs (laurel, kāpuka): about 1-1.5 m apart
+├── Tall screens (lemonwood, tōtara for trees): 2-4 m or more
+└── Follow the nursery label; it knows the cultivar
 
-For a natural screen:
-Plant at 80-90% of mature width
+MISTAKES:
+├── Planting too close (looks good now, overcrowded in 5 years)
+├── Planting on the boundary line (leave room to clip both sides)
+├── Ignoring the mature width of the cultivar
+└── Expecting a solid screen in year 1
+```
+
+## Time to Privacy
+
+```
+YEARS = (Target height - Planting height) ÷ Growth per year
+        + about 1 year for establishment
 
 EXAMPLE:
-Nellie Stevens Holly: 10' mature width
-├── Dense hedge: 6-7' spacing
-└── Natural screen: 8-9' spacing
+Plant a 1.5 m kōhūhū, target 2.5 m, growth about 0.5 m per year:
+(2.5 - 1.5) ÷ 0.5 = 2 years + 1 year for establishment
+= about 3 years
 
-COMMON MISTAKES:
-├── Planting too close (looks good now, disaster in 5 years)
-├── Using immature width (3-gallon plant width, not mature)
-├── Not accounting for snow load spread
-└── Expecting mature width overnight
+Plan for 3-5 years for most screens.
 ```
 
-### Time to Privacy Calculator
-
-```
-TIME TO SOLID SCREEN
-────────────────────
-
-Current height → Target height ÷ Annual growth = Years
-
-EXAMPLE:
-Buying 6' tall Nellie Stevens Holly
-Want 12' screen
-Growth rate: 2.5'/year
-
-12' - 6' = 6' needed
-6' ÷ 2.5'/year = 2.4 years to height
-
-BUT add 1 year for establishment/filling in = 3.4 years
-
-REALITY: Plan for 3-5 years for most privacy screens
-```
-
-## Maintenance Reality
-
-### Year 1
+## Maintenance
 
 ```
 YEAR 1: ESTABLISHMENT
-─────────────────────
-├── Water 1" per week (more in heat)
-├── Mulch 2-3" deep (not touching trunk)
-├── NO fertilizer first year (focus on roots)
-├── Monitor for stress (wilting, browning)
-├── Stake only if necessary
-├── Protect from deer if applicable
-└── DO NOT expect much top growth
+├── Water deeply through the first summer (1-2 times a week in dry
+│   spells; more on sand or pumice); check council water restrictions
+├── Mulch 5-8 cm deep, clear of trunks
+├── Skip strong fertiliser at planting; use slow-release in spring
+├── Stake only if needed, and remove stakes after a year
+└── Protect from wind and, where needed, rabbits or possums
 
-WATER SCHEDULE:
-├── Spring: Weekly deep watering
-├── Summer: Twice weekly in heat
-├── Fall: Weekly until ground freezes
-└── Even evergreens need winter water (dry winters)
+ONGOING (southern hemisphere calendar):
+AUTUMN:  Plant; light clip; refresh mulch
+WINTER:  Check for wind or frost damage; rain does most of the watering
+SPRING:  Feed; main clip after frost risk passes
+SUMMER:  Deep water in dry spells; light clip for shape
+
+WATCH FOR:
+├── Yellowing or dieback in wet clay (root rot)
+├── Sooty mould and sap-sucking insects
+├── Frost burn on tender plants
+└── Myrtle rust on Myrtaceae (report to Biosecurity NZ)
 ```
 
-### Ongoing Care
+## Regional Notes (indicative)
 
 ```
-ANNUAL MAINTENANCE
-──────────────────
+NORTHLAND / AUCKLAND / COASTAL BAY OF PLENTY (mild, humid, little frost):
+├── Good: kōhūhū, karo, taupata, akeake, kawakawa, kāpuka, laurel
+├── Watch: humid-climate leaf diseases, kauri dieback areas
+└── Summers can be dry; water young plants
 
-SPRING:
-├── Fertilize with slow-release balanced fertilizer
-├── Check for winter damage, prune out
-├── Monitor for bagworms (starting in May)
-├── Refresh mulch
+WELLINGTON / KAPITI / COASTAL MANAWATŪ (windy, coastal):
+├── Good: taupata, karo, akeake, kāpuka, flax, Olearia, Escallonia
+└── Shelter first; salt and wind prune exposed growth
 
-SUMMER:
-├── Deep water during drought
-├── Treat bagworms if found (Bt or spinosad)
-├── Monitor for spider mites (bronze color)
-└── Light pruning if needed for shape
+CENTRAL NORTH ISLAND / HAWKE'S BAY / WAIRARAPA (cooler inland, some frosts, dry summers):
+├── Good: tōtara, kōhūhū, lemonwood, kāpuka in sheltered spots
+└── Frost-tender species (karo, taupata) need shelter
 
-FALL:
-├── Deep watering before freeze
-├── Wrap columnar evergreens if in snow country
-├── Deer repellent application
-└── No late fertilizing
+CANTERBURY / OTAGO / CENTRAL OTAGO (frosty, dry, wind, some snow):
+├── Good: tōtara, hardy kōhūhū cultivars, kāpuka (in mild spots)
+├── Exotics: laurel (check winter damage), Escallonia in mild spots
+└── Delay frost-tender planting to spring
 
-WINTER:
-├── Brush off heavy snow (gently!)
-├── Don't salt near evergreens
-├── Water during dry spells (yes, in winter)
-└── Inspect for animal damage
+SOUTHLAND / WEST COAST (cool, wet):
+├── Good: tōtara, kāpuka, hardy Pittosporum, Coprosma
+└── Drainage matters more than drought
 ```
 
-## Regional Recommendations
-
-### By Climate Zone
-
-```
-ZONES 3-4 (Very Cold)
-─────────────────────
-Best: Norway Spruce, Eastern Red Cedar, Techny Arborvitae
-Avoid: Skip Laurel, Nellie Stevens, Leyland Cypress
-Trick: Mix evergreens with deciduous (birch, serviceberry)
-
-ZONES 5-6 (Transitional)
-────────────────────────
-Best: Everything works if deer-resistant
-Avoid: Southern broadleafs in cold pockets
-Trick: Site on north/east side of buildings for protection
-
-ZONES 7-8 (Moderate)
-────────────────────
-Best: Skip Laurel, Nellie Stevens, Cryptomeria
-Avoid: Plants that need cold (some spruces struggle)
-Trick: Summer drought bigger issue than winter cold
-
-ZONES 9+ (Warm)
-───────────────
-Best: Wax Myrtle, Podocarpus, Clusia, Viburnum
-Avoid: Northern conifers (arborvitae, spruce)
-Trick: Many tropical options available
-```
+These are general. Local conditions vary at street level (a warm slope versus a frost hollow). Confirm with a local nursery or NIWA data.
 
 ## The Smart Strategy
 
 ```
-IF I HAD TO DO IT OVER
-──────────────────────
-
+IF I HAD TO DO IT AGAIN
 1. FENCE FIRST (if feasible)
-   ├── Provides immediate privacy
-   ├── Plants soften it over time
-   └── Plants can be smaller/cheaper
+   ├── Immediate privacy
+   ├── Plants soften it over time and can be smaller
+   └── Check the height limit and consent
 
 2. MIX SPECIES
-   ├── Don't monoculture (all one plant = all vulnerable)
    ├── 2-3 compatible species
-   └── Stagger heights for layered effect
+   └── Stagger heights for a layered edge
 
 3. BUY SMALLER
-   ├── 4-6' plants establish faster than 8-10'
-   ├── Catch up within 3 years
-   └── Much cheaper
-   └── Less transplant shock
+   ├── PB5-PB18 plants often establish faster than large ones
+   └── Cheaper and less transplant shock
 
-4. NATIVE IS WISE
-   ├── Already adapted to your conditions
-   ├── Wildlife benefits
-   └── Often cheaper from conservation programs
+4. NATIVE WHERE IT FITS
+   ├── Adapted to NZ conditions; supports tūī, kererū and insects
+   └── Buy eco-sourced plants from a native nursery
 
 5. PATIENCE
-   ├── The best privacy screens are planted 10 years ago
-   ├── Second best time: this fall
-   └── Think in decades, not months
+   ├── Best time to plant a screen was 5-10 years ago
+   └── Next best: this autumn
 ```
 
 ---
 
-**Final thought**: Fast privacy usually means fast problems. The plants that grow 5+ feet per year are also the plants that have weak wood, disease susceptibility, and short lifespans. Plant for 20 years from now, not 2 years from now. Your future self will thank you.
+**Final thought**: Fast privacy usually costs something. Choose the trade-off you can live with, get the plants in the ground in autumn, and water them through the first summer.
