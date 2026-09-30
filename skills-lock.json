@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "fancy-yard-landscaper": {
+      "source": "curiositech/some_claude_skills",
+      "sourceType": "github",
+      "skillPath": ".claude/skills/fancy-yard-landscaper/SKILL.md",
+      "computedHash": "7510d04fe13c28539c488b42fb4ca10c4848630c2483da5d5d7b1ff95aeddb76"
+    }
+  }
+}
