@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 470" font-family="sans-serif" font-size="11">
+  <title>Chartwell front yard: provisional plan (assumed dimensions)</title>
+  <rect width="800" height="470" fill="#fff"/>
+  <text x="20" y="22" font-size="14" font-weight="bold">39 Chartwell: front yard, provisional plan</text>
+  <text x="20" y="38" fill="#a00">ASSUMED 14 m frontage x 5.5 m depth. Schematic. Replace with measured values. 1 m = 50 px.</text>
+
+  <!-- house -->
+  <rect x="50" y="60" width="700" height="60" fill="#333"/>
+  <text x="400" y="95" fill="#fff" text-anchor="middle">HOUSE (front facade)</text>
+
+  <!-- section area -->
+  <rect x="50" y="120" width="700" height="275" fill="#a8d08d"/>
+
+  <!-- driveway -->
+  <rect x="410" y="120" width="175" height="275" fill="#666"/>
+  <text x="497" y="270" fill="#fff" text-anchor="middle">Driveway</text>
+  <!-- path -->
+  <rect x="325" y="120" width="60" height="275" fill="#999"/>
+  <text x="355" y="270" text-anchor="middle" fill="#fff">Path</text>
+  <!-- Zone C strip -->
+  <rect x="385" y="120" width="25" height="275" fill="#c9b458"/>
+  <text x="397" y="150" font-size="9" text-anchor="middle">C</text>
+
+  <!-- Zone A hero bed -->
+  <rect x="50" y="200" width="250" height="150" fill="#6b4f36" fill-opacity="0.75"/>
+  <text x="60" y="218" font-weight="bold">A: hero bed</text>
+  <circle cx="150" cy="270" r="22" fill="#e8c400"/>
+  <text x="150" y="274" text-anchor="middle" font-size="9">kōwhai</text>
+  <rect x="60" y="300" width="60" height="40" fill="#8fbf5a"/><text x="90" y="324" text-anchor="middle" font-size="9">Lomandra x12</text>
+  <rect x="200" y="230" width="60" height="30" fill="#b5c4c4"/><text x="230" y="249" text-anchor="middle" font-size="9">Astelia x3</text>
+  <rect x="60" y="230" width="45" height="30" fill="#2f6b3a" fill-opacity="0.8"/><text x="82" y="249" text-anchor="middle" font-size="8" fill="#fff">Corokia</text>
+  <rect x="50" y="365" width="30" height="20" fill="#5a7a3a"/><text x="88" y="379" font-size="9">utility box (hidden by Corokia)</text>
+
+  <!-- Zone B lawn -->
+  <text x="190" y="380" font-size="9" fill="#245">B: lawn (steel-edged)</text>
+
+  <!-- Zone D right bed -->
+  <rect x="690" y="120" width="60" height="275" fill="#6b4f36" fill-opacity="0.75"/>
+  <text x="720" y="135" font-size="9" text-anchor="middle">D</text>
+  <rect x="705" y="140" width="30" height="240" fill="#2f6b3a" fill-opacity="0.85"/>
+  <text x="720" y="270" font-size="9" text-anchor="middle" fill="#fff" transform="rotate(-90 720 270)">clipped hedge 1.0-1.2 m</text>
+
+  <!-- E pots -->
+  <circle cx="310" cy="135" r="9" fill="#111"/><circle cx="400" cy="135" r="9" fill="#111"/>
+  <text x="355" y="118" font-size="9" text-anchor="middle">E: 2 pots at door</text>
+
+  <!-- F bin screen -->
+  <rect x="50" y="130" width="70" height="8" fill="#111"/>
+  <text x="120" y="150" font-size="9">F: bin screen (check council height)</text>
+
+  <!-- kerb / street -->
+  <rect x="50" y="395" width="700" height="8" fill="#bbb"/>
+  <rect x="50" y="403" width="700" height="50" fill="#444"/>
+  <text x="400" y="433" fill="#fff" text-anchor="middle">STREET (Zone H: berm belongs to council)</text>
+  <text x="20" y="465" font-size="9">Lighting (G): uplight on tree, 2 washes on hedge D, step light at letterbox. Aspect not yet confirmed.</text>
+</svg>
