@@ -147,8 +147,9 @@ THUJA / ARBORVITAE (e.g. 'Green Giant', 'Emerald')
 └── Verify with a local supplier before choosing
 
 AVOID:
-├── Privet (Chinese privet is a listed pest plant): see NPPA
-├── Sweet pittosporum (Pittosporum undulatum): a weed in NZ
+├── Tree privet (Ligustrum lucidum): on the NPPA. Treat other privets
+│   (e.g. Chinese privet) as likely weeds until you check the list
+├── Sweet pittosporum (Pittosporum undulatum): on the NPPA
 ├── Running bamboo
 └── Any plant on the NPPA or your regional pest plan
 ```

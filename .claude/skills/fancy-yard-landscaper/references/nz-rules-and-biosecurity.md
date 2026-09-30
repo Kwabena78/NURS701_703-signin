@@ -8,8 +8,8 @@ Check with the local council (city or district):
 
 - Maximum fence and hedge height on boundaries and near driveways
 - Recession planes and shading rules where they apply to structures
-- Building consent for: retaining walls (height and load limits apply), decks, pergolas, taller fences, pool barriers, sheds
-- Resource consent triggers: heritage sites, coastal areas, flood zones, significant slope, overlays
+- Building consent: fences and hoardings up to 2.5 m and retaining walls up to 1.5 m (carrying no extra load such as vehicles or buildings) are generally exempt under Schedule 1 of the Building Act 2004. Pool barriers always need consent. Decks, pergolas and sheds have their own thresholds. Confirm on building.govt.nz ("Building work that doesn't need a building consent") and with your council.
+- Resource consent: district plans can set lower fence height limits (often around 2 m) even where building consent is exempt. Other triggers: heritage sites, coastal areas, flood zones, significant slope, overlays
 - Protected or notable trees: many councils keep a register. Check before pruning or removing a large tree.
 - Stormwater: how much of the section must stay permeable; where roof runoff must go
 
@@ -31,7 +31,7 @@ Where to look: council website (district plan and property search), or phone the
 
 ## 4. Biosecurity
 
-- **National Pest Plant Accord (NPPA)**: a list of plants that cannot be sold, propagated or distributed in NZ. Check the current list before recommending a species. Examples often cited include Chinese privet, tree privet and Japanese honeysuckle; verify against the current list.
+- **National Pest Plant Accord (NPPA)**: a list of plants that cannot be sold, propagated or distributed in NZ. Check the current list before recommending a species. Tree privet (Ligustrum lucidum) and sweet pittosporum (Pittosporum undulatum) appear on it (checked by web search, not on the MPI list itself). Chinese privet and Japanese honeysuckle are not confirmed here; look them up on the current MPI list.
 - **Regional pest management plans**: regional councils list plants that must be controlled in their area. Check the local regional council.
 - **Myrtle rust**: affects Myrtaceae (pōhutukawa, rātā, mānuka, kānuka, ramarama, feijoa, lilly pilly). Buy from reputable nurseries. Report suspected infection to MPI (Biosecurity NZ, 0800 80 99 66).
 - **Kauri dieback**: in kauri areas, clean footwear, tools and vehicles, and do not move soil or plant material out of infected areas.
